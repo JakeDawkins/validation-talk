@@ -1,0 +1,17 @@
+{
+  "scripts": {
+    "start": "mdx-deck deck.mdx",
+    "clean": "rm -rf dist",
+    "static": "mkdir -p dist/assets && cp -R assets dist",
+    "build": "npm run clean && npm run static && mdx-deck build deck.mdx",
+    "pdf": "mdx-deck pdf deck.mdx",
+    "image": "mdx-deck screenshot deck.mdx",
+    "help": "mdx-deck"
+  },
+  "keywords": [],
+  "devDependencies": {
+    "mdx-deck": "^1.6.7"
+  },
+  "name": "Validation",
+  "dependencies": {}
+}
