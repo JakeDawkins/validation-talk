@@ -11,25 +11,6 @@ export default Invert;
 
 # Federated Validation
 
-<!-- ---
-
-export default Split;
-
-<img src="./assets/headshot.png" style={{ width: '50%' }} />
-
-## Who Am I
-
-- Apollo Architect
-- Best practices
-- Schema design & Testing
-
-```notes
-- Apollo architect: I'm here to help you navigate the graphql ecosystem
-- Best practices: we've worked with people/organizations at all sizes
-- Schema design to help you prevent costly refactors in the future
-```
- -->
-
 ---
 
 ## What I'm Talking About
@@ -37,7 +18,7 @@ export default Split;
 - What is validation
 - Validation of a single service
 - Validation of federated services
-- What validation errors looks like
+- What validation errors look like
 
 ---
 
@@ -53,11 +34,7 @@ export default Invert;
 
 ---
 
-TODO: diagram schema -> validateSDL -> GraphQLError[]
-
-```notes
-- validateSDL uses a set of validation rules built into graphql-js to validate the service
-```
+<img src="./assets/validation.png" style={{ width: '75%' }} />
 
 ---
 
@@ -67,7 +44,7 @@ export default Invert;
 
 ---
 
-TODO: diagram of federated service validation process
+<img src="./assets/federated-validation.png" style={{ width: '75%' }} />
 
 ---
 
@@ -79,12 +56,7 @@ TODO: diagram of federated service validation process
 
 ---
 
-## The steps...
-
-1. `validateServicesBeforeNormalization`
-1. `validateServicesBeforeComposition`
-1. `validateSDL` (inside `composeServices`)
-1. `validateComposedSchema`
+<img src="./assets/federated-validation.png" style={{ width: '75%' }} />
 
 ---
 
@@ -138,9 +110,6 @@ export default Invert;
 
 - Validates each schema separately
 - Composition modifies the schemas and strips out things like `@external` fields, so we need to validate the things that get stripped
-- Examples include...
-  - Using a reserved field (like `Query._service`)
-  - `@external` field on a type definition
 
 ---
 
@@ -184,7 +153,7 @@ export default Invert;
 ---
 
 <pre>
-  <h2>validateComposedSchema(schema)</h2>
+  <h2>validateComposedSchema</h2>
 </pre>
 
 - Preferred place to validate if possible
@@ -203,7 +172,6 @@ export default Invert;
   - external used on a field not on the base type
 - `externalTypeMismatch`
   - external field doesn't match the field on the base type
-- `@requires` / `@provides` / `@key` directive usage
 - +6 more
 
 ---
