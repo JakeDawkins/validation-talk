@@ -1,11 +1,11 @@
 {
   "scripts": {
-    "start": "mdx-deck deck.mdx",
+    "start": "NODE_OPTIONS=--openssl-legacy-provider mdx-deck deck.mdx",
     "clean": "rm -rf dist",
     "static": "mkdir -p dist/assets && cp -R assets dist",
-    "build": "npm run clean && npm run static && mdx-deck build deck.mdx",
-    "pdf": "mdx-deck pdf deck.mdx",
-    "image": "mdx-deck screenshot deck.mdx",
+    "build": "npm run clean && npm run static && NODE_OPTIONS=--openssl-legacy-provider mdx-deck build deck.mdx",
+    "pdf": "NODE_OPTIONS=--openssl-legacy-provider mdx-deck pdf deck.mdx --port 8138 --out-dir . --out-file federated-validation.pdf --width 1280 --height 720",
+    "image": "NODE_OPTIONS=--openssl-legacy-provider mdx-deck screenshot deck.mdx",
     "help": "mdx-deck"
   },
   "keywords": [],
